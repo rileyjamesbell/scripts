@@ -12,7 +12,7 @@ do
 		file=$line
 		md5=$(md5sum "$file"|cut -d ' ' -f 1)
 
-		if [ ! -z "$(cat /tmp/md5s.txt|grep "$md5")" ]
+		if [ ! -z "$(grep "$md5" /tmp/md5s.txt)" ]
 		then
 			echo "Deleting \""$line"\" is a duplicate"
 			rm "$file"
